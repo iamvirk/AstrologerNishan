@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astrologer Nishan | Vedic Astrology Expert</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #8e44ad;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --dark: #2c3e50;
+            --light: #f9f9f9;
+            --gold: #f1c40f;
+            --purple-dark: #1a1a2e;
+            --purple-light: #16213e;
+            --transition: all 0.4s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, var(--purple-dark) 0%, var(--purple-light) 100%);
+            color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+        }
+        
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(142, 68, 173, 0.1) 0%, transparent 15%),
+                radial-gradient(circle at 90% 80%, rgba(52, 152, 219, 0.1) 0%, transparent 15%),
+                radial-gradient(circle at 50% 50%, rgba(231, 76, 60, 0.05) 0%, transparent 25%);
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .star {
+            position: absolute;
+            background-color: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+        
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 1; }
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            padding: 20px 0;
+            position: relative;
+            z-index: 1000;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-right: 15px;
+        }
+        
+        .logo h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            background: linear-gradient(to right, var(--gold), #ff8c00);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: 1px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--light);
+            font-weight: 500;
+            font-size: 1.1rem;
+            position: relative;
+            padding: 5px 0;
+            transition: var(--transition);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: var(--transition);
+        }
+        
+        nav ul li a:hover {
+            color: var(--gold);
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .hero h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, var(--gold), #ff8c00);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: #ddd;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            border: none;
+            cursor: pointer;
+            margin: 10px;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+            background: linear-gradient(45deg, var(--secondary), var(--primary));
+        }
+        
+        /* Solar System */
+        .solar-system-container {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 60px 0;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .solar-system-title {
+            text-align: center;
+            margin-bottom: 30px;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--gold);
+        }
+        
+        .solar-system-controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .planet-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .planet-btn:hover {
+            background: var(--primary);
+        }
+        
+        .planet-btn.active {
+            background: var(--secondary);
+        }
+        
+        .planet-btn i {
+            font-size: 1.2rem;
+        }
+        
+        .solar-system {
+            position: relative;
+            height: 500px;
+            margin: 0 auto;
+            max-width: 800px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .sun {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            background: url('sun.png') no-repeat center center;
+            background-size: contain;
+            border-radius: 50%;
+            box-shadow: 0 0 40px rgba(241, 196, 15, 0.8);
+            z-index: 100;
+        }
+        
+        .orbit {
+            position: absolute;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .planet-container {
+            position: absolute;
+            transform-origin: center;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .planet {
+            width: 50px;
+            height: 50px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .planet:hover {
+            transform: scale(1.2);
+        }
+        
+        .planet-info {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 10px;
+            padding: 15px;
+            width: 250px;
+            z-index: 200;
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--gold);
+            display: none;
+            color: white;
+        }
+        
+        .planet-info h3 {
+            color: var(--gold);
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+        
+        .mercury { background-image: url('mercury.png'); }
+        .venus { background-image: url('venus.png'); }
+        .mars { background-image: url('mars.png'); }
+        .jupiter { background-image: url('jupiter.png'); }
+        .saturn { background-image: url('saturn.png'); }
+        .moon { background-image: url('moon.png'); }
+        
+        .orbit-label {
+            position: absolute;
+            color: white;
+            font-size: 0.9rem;
+            font-weight: 500;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 3px 8px;
+            border-radius: 10px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .planet-container:hover .orbit-label {
+            opacity: 1;
+        }
+        
+        /* Services */
+        .services {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--gold);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+        
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--gold);
+        }
+        
+        /* About */
+        .about {
+            padding: 80px 0;
+            background: rgba(0, 0, 0, 0.2);
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .about-text h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--gold);
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+        
+        .about-image img {
+            max-width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 80px 0;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .testimonial-content {
+            font-style: italic;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary);
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .author-details h4 {
+            color: var(--gold);
+        }
+        
+        /* Contact */
+        .contact {
+            padding: 80px 0;
+            background: rgba(0, 0, 0, 0.2);
+        }
+        
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+        
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .contact-info h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--gold);
+        }
+        
+        .contact-details {
+            margin-bottom: 30px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .contact-item i {
+            font-size: 1.5rem;
+            color: var(--gold);
+            margin-right: 15px;
+            width: 30px;
+        }
+        
+        .contact-form {
+            flex: 1;
+            min-width: 300px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(0, 0, 0, 0.3);
+            color: white;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+        
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.4);
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--gold);
+            margin: 0 10px;
+            font-size: 1.3rem;
+            transition: var(--transition);
+        }
+        
+        .social-icons a:hover {
+            background: var(--primary);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .mobile-menu {
+                display: block;
+            }
+            
+            nav {
+                width: 100%;
+                margin-top: 20px;
+                display: none;
+            }
+            
+            nav.active {
+                display: block;
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+            }
+            
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .solar-system {
+                height: 400px;
+            }
+            
+            .orbit {
+                transform: scale(0.8);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .logo h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .solar-system {
+                height: 350px;
+            }
+            
+            .orbit {
+                transform: scale(0.7);
+            }
+            
+            .solar-system-controls {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Stars -->
+    <div class="stars" id="stars"></div>
+    
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-star-and-crescent"></i>
+                    <h1>Astrologer Nishan</h1>
+                </div>
+                <div class="mobile-menu" id="mobileMenu">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <nav id="navMenu">
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#solar-system">Planets</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h2>Unlock Your Destiny with Vedic Astrology</h2>
+            <p>Expert astrological guidance to help you navigate life's challenges and opportunities. Discover your true potential with personalized horoscope analysis.</p>
+            <a href="#contact" class="cta-button">Book a Consultation</a>
+            <a href="#solar-system" class="cta-button">Explore Planets</a>
+        </div>
+    </section>
+    
+    <!-- Solar System -->
+    <section class="solar-system-container" id="solar-system">
+        <div class="container">
+            <h2 class="solar-system-title">Interactive Planetary System</h2>
+            <p style="text-align: center; margin-bottom: 30px; max-width: 800px; margin-left: auto; margin-right: auto;">
+                Explore the celestial bodies that influence your destiny. Click on any planet to learn about its astrological significance.
+            </p>
+            
+            <div class="solar-system-controls">
+                <button class="planet-btn active" data-planet="all">
+                    <i class="fas fa-globe"></i> All Planets
+                </button>
+                <button class="planet-btn" data-planet="sun">
+                    <i class="fas fa-sun"></i> Sun
+                </button>
+                <button class="planet-btn" data-planet="moon">
+                    <i class="fas fa-moon"></i> Moon
+                </button>
+                <button class="planet-btn" data-planet="mercury">
+                    <i class="fas fa-comment"></i> Mercury
+                </button>
+                <button class="planet-btn" data-planet="venus">
+                    <i class="fas fa-heart"></i> Venus
+                </button>
+                <button class="planet-btn" data-planet="mars">
+                    <i class="fas fa-fire"></i> Mars
+                </button>
+                <button class="planet-btn" data-planet="jupiter">
+                    <i class="fas fa-crown"></i> Jupiter
+                </button>
+                <button class="planet-btn" data-planet="saturn">
+                    <i class="fas fa-ring"></i> Saturn
+                </button>
+            </div>
+            
+            <div class="solar-system">
+                <div class="sun"></div>
+                <!-- Planets will be added here with JavaScript -->
+            </div>
+        </div>
+    </section>
+    
+    <!-- Services -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">Our Astrological Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Birth Chart Analysis</h3>
+                    <p>Detailed analysis of your natal chart to reveal your personality, strengths, and life path.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Relationship Compatibility</h3>
+                    <p>Understand your compatibility with partners, family, and friends through synastry analysis.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3>Career Guidance</h3>
+                    <p>Discover your ideal career path based on your planetary positions and dasha periods.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <h3>Gemstone Recommendations</h3>
+                    <p>Personalized gemstone suggestions to enhance positive planetary influences.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>Vastu Consultation</h3>
+                    <p>Harmonize your living and working spaces with ancient Vastu Shastra principles.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <h3>Muhurta Selection</h3>
+                    <p>Choose the most auspicious timing for important events like weddings and business launches.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>About Astrologer Nishan</h2>
+                    <p>With over 15 years of experience in Vedic astrology, Nishan Sharma has helped thousands of clients navigate life's challenges and opportunities. Trained by renowned astrologers in India, Nishan combines traditional techniques with modern insights to provide practical guidance.</p>
+                    <p>Nishan specializes in KP astrology, Vedic predictive techniques, and remedial solutions. His compassionate approach and accurate predictions have earned him a loyal client base across the globe.</p>
+                    <p>"My mission is to empower individuals with astrological knowledge that helps them make informed decisions and live more fulfilling lives."</p>
+                    <a href="#contact" class="cta-button">Schedule a Consultation</a>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1534030347209-467a5b0ad3e6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Astrologer Nishan">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <h2 class="section-title">Client Testimonials</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        "Nishan's analysis of my career chart was incredibly accurate. His guidance helped me make a crucial career decision that has transformed my professional life."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-image">RS</div>
+                        <div class="author-details">
+                            <h4>Rajesh Sharma</h4>
+                            <p>Business Owner</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        "The relationship compatibility reading gave me profound insights into my marriage. We've implemented Nishan's suggestions and our relationship has improved significantly."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-image">PK</div>
+                        <div class="author-details">
+                            <h4>Priya Kumar</h4>
+                            <p>Marketing Executive</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        "I was skeptical at first, but Nishan's predictions about my financial situation came true with remarkable precision. His remedies made a noticeable difference."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-image">AM</div>
+                        <div class="author-details">
+                            <h4>Anil Mehta</h4>
+                            <p>Software Engineer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h2>Get in Touch</h2>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <p>123 Astrology Lane, Delhi, India</p>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <p>+91 98765 43210</p>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <p>consult@astrologernishan.com</p>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-clock"></i>
+                            <p>Mon-Sat: 10:00 AM - 7:00 PM</p>
+                        </div>
+                    </div>
+                    <div class="map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.675141124767!2d77.20747977542971!3d28.64664347566275!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd5b347eb62d%3A0x52c2b7494e204dce!2sNew%20Delhi%2C%20Delhi!5e0!3m2!1sen!2sin!4v1690204087484!5m2!1sen!2sin" width="100%" height="250" style="border:0; border-radius: 10px;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h2>Book a Consultation</h2>
+                    <form id="consultationForm">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="dob">Date of Birth</label>
+                            <input type="date" id="dob" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="tob">Time of Birth</label>
+                            <input type="time" id="tob" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="pob">Place of Birth</label>
+                            <input type="text" id="pob" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Questions</label>
+                            <textarea id="message"></textarea>
+                        </div>
+                        <button type="submit" class="cta-button">Submit Request</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <p class="copyright">© 2023 Astrologer Nishan. All Rights Reserved.</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Mobile Menu Toggle
+        document.getElementById('mobileMenu').addEventListener('click', function() {
+            const navMenu = document.getElementById('navMenu');
+            navMenu.classList.toggle('active');
+        });
+        
+        // Create background stars
+        function createStars() {
+            const starsContainer = document.getElementById('stars');
+            const starsCount = 200;
+            
+            for (let i = 0; i < starsCount; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
+                
+                // Random position
+                const posX = Math.random() * 100;
+                const posY = Math.random() * 100;
+                
+                // Random size
+                const size = Math.random() * 3;
+                
+                // Random opacity
+                const opacity = Math.random() * 0.8 + 0.2;
+                
+                // Random animation delay
+                const delay = Math.random() * 5;
+                
+                star.style.left = `${posX}%`;
+                star.style.top = `${posY}%`;
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                star.style.opacity = opacity;
+                star.style.animationDelay = `${delay}s`;
+                
+                starsContainer.appendChild(star);
+            }
+        }
+        
+        // Planet information
+        const planetInfo = {
+            sun: {
+                name: "Sun",
+                description: "The Sun represents the soul, vitality, and self-expression in Vedic astrology. It governs leadership, authority, and your life purpose. A strong Sun in your chart indicates confidence, success, and good health.",
+                influence: "Governs vitality, leadership, father figures, government, and self-expression",
+                gemstone: "Ruby",
+                element: "Fire"
+            },
+            moon: {
+                name: "Moon",
+                description: "The Moon represents the mind, emotions, and subconscious patterns. It influences your emotional nature, intuition, and relationship with your mother. A well-placed Moon indicates emotional stability and strong intuition.",
+                influence: "Governs emotions, mind, mother, home, and public",
+                gemstone: "Pearl",
+                element: "Water"
+            },
+            mercury: {
+                name: "Mercury",
+                description: "Mercury governs communication, intellect, and logical reasoning. It influences your ability to learn, process information, and express yourself. A strong Mercury indicates intelligence, wit, and good business acumen.",
+                influence: "Governs communication, intellect, education, commerce, and travel",
+                gemstone: "Emerald",
+                element: "Air"
+            },
+            venus: {
+                name: "Venus",
+                description: "Venus represents love, beauty, relationships, and artistic expression. It governs marriage, partnerships, and material comforts. A well-placed Venus indicates harmony in relationships and appreciation for beauty.",
+                influence: "Governs love, marriage, arts, luxury, and social life",
+                gemstone: "Diamond",
+                element: "Water"
+            },
+            mars: {
+                name: "Mars",
+                description: "Mars represents energy, courage, and action. It governs your drive, ambition, and ability to overcome challenges. A strong Mars indicates leadership qualities, physical strength, and competitive spirit.",
+                influence: "Governs energy, courage, conflicts, sports, and surgery",
+                gemstone: "Red Coral",
+                element: "Fire"
+            },
+            jupiter: {
+                name: "Jupiter",
+                description: "Jupiter is the planet of wisdom, expansion, and good fortune. It governs higher education, spirituality, and prosperity. A strong Jupiter indicates optimism, generosity, and spiritual growth.",
+                influence: "Governs wisdom, wealth, children, spirituality, and higher education",
+                gemstone: "Yellow Sapphire",
+                element: "Ether"
+            },
+            saturn: {
+                name: "Saturn",
+                description: "Saturn represents discipline, responsibility, and life lessons. It governs hard work, perseverance, and long-term achievements. A well-placed Saturn indicates patience, discipline, and success through effort.",
+                influence: "Governs discipline, karma, longevity, obstacles, and career",
+                gemstone: "Blue Sapphire",
+                element: "Air"
+            }
+        };
+        
+        // Create solar system
+        function createSolarSystem() {
+            const solarSystem = document.querySelector('.solar-system');
+            
+            // Define planet data
+            const planets = [
+                { name: 'mercury', distance: 100, size: 30, rotation: 0 },
+                { name: 'venus', distance: 140, size: 35, rotation: 60 },
+                { name: 'mars', distance: 180, size: 35, rotation: 120 },
+                { name: 'jupiter', distance: 220, size: 60, rotation: 180 },
+                { name: 'saturn', distance: 280, size: 55, rotation: 240 },
+                { name: 'moon', distance: 340, size: 30, rotation: 300 }
+            ];
+            
+            // Create orbits and planets
+            planets.forEach(planet => {
+                // Create orbit
+                const orbit = document.createElement('div');
+                orbit.classList.add('orbit');
+                orbit.style.width = `${planet.distance * 2}px`;
+                orbit.style.height = `${planet.distance * 2}px`;
+                solarSystem.appendChild(orbit);
+                
+                // Create planet container
+                const planetContainer = document.createElement('div');
+                planetContainer.classList.add('planet-container', `${planet.name}-container`);
+                planetContainer.style.transform = `rotate(${planet.rotation}deg)`;
+                planetContainer.dataset.planet = planet.name;
+                
+                // Create planet
+                const planetDiv = document.createElement('div');
+                planetDiv.classList.add('planet', planet.name);
+                planetDiv.style.width = `${planet.size}px`;
+                planetDiv.style.height = `${planet.size}px`;
+                
+                // Create label
+                const label = document.createElement('div');
+                label.classList.add('orbit-label');
+                label.textContent = planet.name.charAt(0).toUpperCase() + planet.name.slice(1);
+                label.style.top = `-${planet.size}px`;
+                
+                // Create info element
+                const info = document.createElement('div');
+                info.classList.add('planet-info');
+                info.innerHTML = `
+                    <h3>${planetInfo[planet.name].name}</h3>
+                    <p>${planetInfo[planet.name].description}</p>
+                    <p><strong>Influence:</strong> ${planetInfo[planet.name].influence}</p>
+                    <p><strong>Beneficial Gemstone:</strong> ${planetInfo[planet.name].gemstone}</p>
+                    <p><strong>Element:</strong> ${planetInfo[planet.name].element}</p>
+                `;
+                
+                planetContainer.appendChild(planetDiv);
+                planetContainer.appendChild(label);
+                planetContainer.appendChild(info);
+                orbit.appendChild(planetContainer);
+                
+                // Add rotation functionality
+                let isRotating = false;
+                let startAngle = 0;
+                let startX = 0;
+                
+                planetContainer.addEventListener('mousedown', (e) => {
+                    isRotating = true;
+                    startX = e.clientX;
+                    startAngle = planet.rotation;
+                    planetContainer.style.cursor = 'grabbing';
+                    e.preventDefault();
+                });
+                
+                document.addEventListener('mousemove', (e) => {
+                    if (isRotating) {
+                        const deltaX = e.clientX - startX;
+                        const rotation = startAngle + deltaX;
+                        planetContainer.style.transform = `rotate(${rotation}deg)`;
+                    }
+                });
+                
+                document.addEventListener('mouseup', () => {
+                    isRotating = false;
+                    planetContainer.style.cursor = 'pointer';
+                });
+                
+                // Planet click event to show info
+                planetContainer.addEventListener('click', function(e) {
+                    if (!isRotating) {
+                        // Hide all other info boxes
+                        document.querySelectorAll('.planet-info').forEach(info => {
+                            info.style.display = 'none';
+                        });
+                        
+                        // Show this planet's info
+                        const info = this.querySelector('.planet-info');
+                        info.style.display = 'block';
+                        
+                        // Position the info box
+                        const rect = this.getBoundingClientRect();
+                        info.style.left = `${rect.left + 60}px`;
+                        info.style.top = `${rect.top - 100}px`;
+                    }
+                });
+            });
+            
+            // Add event listener to close info boxes when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.planet-container')) {
+                    document.querySelectorAll('.planet-info').forEach(info => {
+                        info.style.display = 'none';
+                    });
+                }
+            });
+            
+            // Planet filter buttons
+            document.querySelectorAll('.planet-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    // Update active button
+                    document.querySelectorAll('.planet-btn').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                    
+                    const planet = this.dataset.planet;
+                    
+                    // Show/hide planets
+                    document.querySelectorAll('.planet-container').forEach(container => {
+                        if (planet === 'all' || container.dataset.planet === planet) {
+                            container.style.display = 'block';
+                        } else {
+                            container.style.display = 'none';
+                        }
+                    });
+                    
+                    // Special case for sun
+                    if (planet === 'sun') {
+                        document.querySelector('.sun').style.display = 'block';
+                        document.querySelectorAll('.planet-container').forEach(container => {
+                            container.style.display = 'none';
+                        });
+                    } else if (planet !== 'all') {
+                        document.querySelector('.sun').style.display = 'none';
+                    } else {
+                        document.querySelector('.sun').style.display = 'block';
+                    }
+                });
+            });
+        }
+        
+        // Form submission
+        document.getElementById('consultationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your consultation request! We will contact you shortly.');
+            this.reset();
+        });
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            createStars();
+            createSolarSystem();
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        window.scrollTo({
+                            top: target.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Close mobile menu if open
+                        const navMenu = document.getElementById('navMenu');
+                        navMenu.classList.remove('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
