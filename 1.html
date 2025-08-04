@@ -231,16 +231,16 @@
         
         /* Solar System */
          .solar-system-container {
-            position: relative;
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 20px;
-            padding: 30px;
-            margin: 60px 0;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            overflow: visible;       /* ✅ Important fix */
-            min-height: 700px;       /* ✅ Give it room */
-        }
+            background: none !important;
+            border: none !important;
+            padding: 0 !important;
+            margin: 0 auto;
+            backdrop-filter: none !important;
+            box-shadow: none !important;
+            border-radius: 0 !important;
+            overflow: visible;
+            min-height: unset;
+       }
         
         .solar-system-title {
             text-align: center;
@@ -251,14 +251,13 @@
         }
         
         .solar-system {
-            position: relative;
-            height: 500px;
-            margin: 0 auto;
-            max-width: 800px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+    position: relative;
+    width: 100vw;
+    height: 600px; /* or a fixed height like 500-700px */
+    max-width: 100%;
+    overflow: visible;
+    margin: 0 auto;
+}
         
         .sun {
     position: absolute;
@@ -288,32 +287,32 @@
         }
         
         .orbit-2 { 
-            width: 300px;
-            height: 300px;
+            width: 200px;
+            height: 200px;
             animation-duration: 12s;
         }
         
         .orbit-3 { 
-            width: 400px;
-            height: 400px;
+            width: 300px;
+            height: 300px;
             animation-duration: 16s;
         }
         
         .orbit-4 { 
-            width: 500px;
-            height: 500px;
+            width: 400px;
+            height: 400px;
             animation-duration: 20s;
         }
         
         .orbit-5 { 
-            width: 600px;
-            height: 600px;
+            width: 500px;
+            height: 500px;
             animation-duration: 24s;
         }
         
         .orbit-6 { 
-            width: 700px;
-            height: 700px;
+            width: 500px;
+            height: 500px;
             animation-duration: 28s;
         }
         
