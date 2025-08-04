@@ -260,15 +260,15 @@
         }
         
         .sun {
-            position: absolute;
-            width: 120px;
-            height: 120px;
-            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj48Y2lyY2xlIGN4PSIxMjUiIGN5PSIxMjUiIHI9IjYwIiBmaWxsPSIjRkZDNzAwIiBzdHJva2U9IiNGRkE1MDAiIHN0cm9rZS13aWR0aD0iOCIvPjwvc3ZnPg==') no-repeat center center;
-            background-size: contain;
-            border-radius: 50%;
-            box-shadow: 0 0 40px rgba(241, 196, 15, 0.8);
-            z-index: 100;
-            cursor: pointer;
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    background: url('sun.png') no-repeat center center;
+    background-size: cover;
+    border-radius: 50%;
+    box-shadow: 0 0 40px rgba(241, 196, 15, 0.8);
+    z-index: 100;
+    cursor: pointer;
         }
         
         .orbit {
@@ -322,29 +322,30 @@
         }
         
         .planet {
-            position: absolute;
-            width: 50px;
-            height: 50px;
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
-            transition: transform 0.3s ease;
-            cursor: pointer;
-            top: -25px;
-            left: calc(50% - 25px);
-        }
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    top: -25px;
+    left: calc(50% - 25px);
+    border-radius: 50%;
+}
+
+.planet:hover {
+    transform: scale(1.2);
+}
         
-        .planet:hover {
-            transform: scale(1.2);
-        }
-        
-        .mercury { background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj48Y2lyY2xlIGN4PSIxMjUiIGN5PSIxMjUiIHI9IjMwIiBmaWxsPSIjYTVhNWE1Ii8+PC9zdmc+'); }
-        .venus { background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj48Y2lyY2xlIGN4PSIxMjUiIGN5PSIxMjUiIHI9IjMwIiBmaWxsPSIjZTdhNDQ0Ii8+PC9zdmc+'); }
-        .earth { background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj48Y2lyY2xlIGN4PSIxMjUiIGN5PSIxMjUiIHI9IjMwIiBmaWxsPSIjNDA3OGE0Ii8+PC9zdmc+'); }
-        .mars { background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj48Y2lyY2xlIGN4PSIxMjUiIGN5PSIxMjUiIHI9IjMwIiBmaWxsPSIjZDU3MDI3Ii8+PC9zdmc+'); }
-        .jupiter { background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj48Y2lyY2xlIGN4PSIxMjUiIGN5PSIxMjUiIHI9IjQwIiBmaWxsPSIjZDU4YzU4Ii8+PC9zdmc+'); }
-        .saturn { background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj48Y2lyY2xlIGN4PSIxMjUiIGN5PSIxMjUiIHI9IjM1IiBmaWxsPSIjZTdhNzQ0Ii8+PHJlY3QgeD0iNjUiIHk9IjExMCIgd2lkdGg9IjEyMCIgaGVpZ2h0PSIzMCIgcng9IjE1IiByeT0iMTUiIGZpbGw9IiNlM2E3MzMiIHRyYW5zZm9ybT0icm90YXRlKDMwIDEyNSAxMjUpIi8+PC9zdmc+'); }
-        .moon { background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj48Y2lyY2xlIGN4PSIxMjUiIGN5PSIxMjUiIHI9IjMwIiBmaWxsPSIjZTVlNWU1Ii8+PC9zdmc+'); }
+        .mercury { background-image: url('mercury.png'); }
+        .venus { background-image: url('venus.png'); }
+        .earth { background-image: url('earth'); }
+        .mars { background-image: url('mars.png'); }
+        .jupiter { background-image: url('jupiter.png'); }
+        .saturn { background-image: url('saturn.png'); }
+        .moon { background-image: url('moon.png'); }
         
         /* Modal */
         .modal {
