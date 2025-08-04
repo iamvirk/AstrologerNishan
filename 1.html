@@ -67,9 +67,33 @@
             animation: twinkle 3s infinite;
         }
         
+        .falling-star {
+            position: fixed;
+            width: 100px;
+            height: 2px;
+            background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 30%, rgba(255,255,255,0) 100%);
+            z-index: -1;
+            opacity: 0;
+            animation: fallingStar linear forwards;
+        }
+        
         @keyframes twinkle {
             0%, 100% { opacity: 0.2; }
             50% { opacity: 1; }
+        }
+        
+        @keyframes fallingStar {
+            0% {
+                opacity: 0;
+                transform: translate(0, 0) rotate(-30deg);
+            }
+            10% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+                transform: translate(300px, 150px) rotate(-30deg);
+            }
         }
         
         .container {
@@ -213,6 +237,8 @@
             margin: 60px 0;
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
         }
         
         .solar-system-title {
@@ -221,39 +247,6 @@
             font-family: 'Playfair Display', serif;
             font-size: 2.5rem;
             color: var(--gold);
-        }
-        
-        .solar-system-controls {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-        }
-        
-        .planet-btn {
-            background: rgba(255, 255, 255, 0.1);
-            border: none;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 30px;
-            cursor: pointer;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .planet-btn:hover {
-            background: var(--primary);
-        }
-        
-        .planet-btn.active {
-            background: var(--secondary);
-        }
-        
-        .planet-btn i {
-            font-size: 1.2rem;
         }
         
         .solar-system {
@@ -270,82 +263,162 @@
             position: absolute;
             width: 120px;
             height: 120px;
-            background: url('sun.png') no-repeat center center;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj48Y2lyY2xlIGN4PSIxMjUiIGN5PSIxMjUiIHI9IjYwIiBmaWxsPSIjRkZDNzAwIiBzdHJva2U9IiNGRkE1MDAiIHN0cm9rZS13aWR0aD0iOCIvPjwvc3ZnPg==') no-repeat center center;
             background-size: contain;
             border-radius: 50%;
             box-shadow: 0 0 40px rgba(241, 196, 15, 0.8);
             z-index: 100;
+            cursor: pointer;
         }
         
         .orbit {
             position: absolute;
-            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
+            animation: orbit linear infinite;
         }
         
-        .planet-container {
-            position: absolute;
-            transform-origin: center;
-            cursor: pointer;
-            transition: transform 0.3s ease;
+        .orbit-1 { 
+            width: 200px;
+            height: 200px;
+            animation-duration: 8s;
+        }
+        
+        .orbit-2 { 
+            width: 300px;
+            height: 300px;
+            animation-duration: 12s;
+        }
+        
+        .orbit-3 { 
+            width: 400px;
+            height: 400px;
+            animation-duration: 16s;
+        }
+        
+        .orbit-4 { 
+            width: 500px;
+            height: 500px;
+            animation-duration: 20s;
+        }
+        
+        .orbit-5 { 
+            width: 600px;
+            height: 600px;
+            animation-duration: 24s;
+        }
+        
+        .orbit-6 { 
+            width: 700px;
+            height: 700px;
+            animation-duration: 28s;
+        }
+        
+        @keyframes orbit {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
         
         .planet {
+            position: absolute;
             width: 50px;
             height: 50px;
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
             transition: transform 0.3s ease;
+            cursor: pointer;
+            top: -25px;
+            left: calc(50% - 25px);
         }
         
         .planet:hover {
             transform: scale(1.2);
         }
         
-        .planet-info {
-            position: absolute;
-            background: rgba(0, 0, 0, 0.8);
-            border-radius: 10px;
-            padding: 15px;
-            width: 250px;
-            z-index: 200;
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--gold);
+        .mercury { background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj48Y2lyY2xlIGN4PSIxMjUiIGN5PSIxMjUiIHI9IjMwIiBmaWxsPSIjYTVhNWE1Ii8+PC9zdmc+'); }
+        .venus { background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj48Y2lyY2xlIGN4PSIxMjUiIGN5PSIxMjUiIHI9IjMwIiBmaWxsPSIjZTdhNDQ0Ii8+PC9zdmc+'); }
+        .earth { background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj48Y2lyY2xlIGN4PSIxMjUiIGN5PSIxMjUiIHI9IjMwIiBmaWxsPSIjNDA3OGE0Ii8+PC9zdmc+'); }
+        .mars { background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj48Y2lyY2xlIGN4PSIxMjUiIGN5PSIxMjUiIHI9IjMwIiBmaWxsPSIjZDU3MDI3Ii8+PC9zdmc+'); }
+        .jupiter { background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj48Y2lyY2xlIGN4PSIxMjUiIGN5PSIxMjUiIHI9IjQwIiBmaWxsPSIjZDU4YzU4Ii8+PC9zdmc+'); }
+        .saturn { background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj48Y2lyY2xlIGN4PSIxMjUiIGN5PSIxMjUiIHI9IjM1IiBmaWxsPSIjZTdhNzQ0Ii8+PHJlY3QgeD0iNjUiIHk9IjExMCIgd2lkdGg9IjEyMCIgaGVpZ2h0PSIzMCIgcng9IjE1IiByeT0iMTUiIGZpbGw9IiNlM2E3MzMiIHRyYW5zZm9ybT0icm90YXRlKDMwIDEyNSAxMjUpIi8+PC9zdmc+'); }
+        .moon { background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj48Y2lyY2xlIGN4PSIxMjUiIGN5PSIxMjUiIHI9IjMwIiBmaWxsPSIjZTVlNWU1Ii8+PC9zdmc+'); }
+        
+        /* Modal */
+        .modal {
             display: none;
-            color: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
         }
         
-        .planet-info h3 {
-            color: var(--gold);
-            margin-bottom: 10px;
-            font-size: 1.3rem;
+        .modal-content {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            border-radius: 15px;
+            padding: 30px;
+            width: 90%;
+            max-width: 500px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 0 30px rgba(241, 196, 15, 0.5);
+            border: 1px solid var(--gold);
         }
         
-        .mercury { background-image: url('mercury.png'); }
-        .venus { background-image: url('venus.png'); }
-        .mars { background-image: url('mars.png'); }
-        .jupiter { background-image: url('jupiter.png'); }
-        .saturn { background-image: url('saturn.png'); }
-        .moon { background-image: url('moon.png'); }
-        
-        .orbit-label {
+        .close-modal {
             position: absolute;
-            color: white;
-            font-size: 0.9rem;
-            font-weight: 500;
-            background: rgba(0, 0, 0, 0.5);
-            padding: 3px 8px;
-            border-radius: 10px;
-            opacity: 0;
-            transition: opacity 0.3s ease;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            color: var(--gold);
+            cursor: pointer;
+            transition: var(--transition);
         }
         
-        .planet-container:hover .orbit-label {
-            opacity: 1;
+        .close-modal:hover {
+            transform: rotate(90deg);
+        }
+        
+        .modal-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .modal-icon {
+            width: 60px;
+            height: 60px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            margin-right: 20px;
+        }
+        
+        .modal-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--gold);
+        }
+        
+        .modal-body p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        
+        .planet-fact {
+            background: rgba(255,255,255,0.05);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 3px solid var(--gold);
         }
         
         /* Services */
@@ -661,11 +734,6 @@
             .orbit {
                 transform: scale(0.7);
             }
-            
-            .solar-system-controls {
-                flex-direction: column;
-                align-items: center;
-            }
         }
     </style>
 </head>
@@ -716,39 +784,55 @@
                 Explore the celestial bodies that influence your destiny. Click on any planet to learn about its astrological significance.
             </p>
             
-            <div class="solar-system-controls">
-                <button class="planet-btn active" data-planet="all">
-                    <i class="fas fa-globe"></i> All Planets
-                </button>
-                <button class="planet-btn" data-planet="sun">
-                    <i class="fas fa-sun"></i> Sun
-                </button>
-                <button class="planet-btn" data-planet="moon">
-                    <i class="fas fa-moon"></i> Moon
-                </button>
-                <button class="planet-btn" data-planet="mercury">
-                    <i class="fas fa-comment"></i> Mercury
-                </button>
-                <button class="planet-btn" data-planet="venus">
-                    <i class="fas fa-heart"></i> Venus
-                </button>
-                <button class="planet-btn" data-planet="mars">
-                    <i class="fas fa-fire"></i> Mars
-                </button>
-                <button class="planet-btn" data-planet="jupiter">
-                    <i class="fas fa-crown"></i> Jupiter
-                </button>
-                <button class="planet-btn" data-planet="saturn">
-                    <i class="fas fa-ring"></i> Saturn
-                </button>
-            </div>
-            
             <div class="solar-system">
-                <div class="sun"></div>
-                <!-- Planets will be added here with JavaScript -->
+                <div class="sun" id="sun"></div>
+                
+                <!-- Orbit 1 -->
+                <div class="orbit orbit-1">
+                    <div class="planet mercury" id="mercury"></div>
+                </div>
+                
+                <!-- Orbit 2 -->
+                <div class="orbit orbit-2">
+                    <div class="planet venus" id="venus"></div>
+                </div>
+                
+                <!-- Orbit 3 -->
+                <div class="orbit orbit-3">
+                    <div class="planet earth" id="earth"></div>
+                </div>
+                
+                <!-- Orbit 4 -->
+                <div class="orbit orbit-4">
+                    <div class="planet mars" id="mars"></div>
+                </div>
+                
+                <!-- Orbit 5 -->
+                <div class="orbit orbit-5">
+                    <div class="planet jupiter" id="jupiter"></div>
+                </div>
+                
+                <!-- Orbit 6 -->
+                <div class="orbit orbit-6">
+                    <div class="planet saturn" id="saturn"></div>
+                </div>
             </div>
         </div>
     </section>
+    
+    <!-- Planet Info Modal -->
+    <div class="modal" id="planetModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeModal">&times;</span>
+            <div class="modal-header">
+                <div class="modal-icon" id="modalIcon"></div>
+                <h2 class="modal-title" id="modalTitle">Planet Name</h2>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- Content will be inserted by JavaScript -->
+            </div>
+        </div>
+    </div>
     
     <!-- Services -->
     <section class="services" id="services">
@@ -984,205 +1068,194 @@
             }
         }
         
+        // Create falling stars
+        function createFallingStars() {
+            setInterval(() => {
+                const fallingStar = document.createElement('div');
+                fallingStar.classList.add('falling-star');
+                
+                // Random position
+                const posX = Math.random() * window.innerWidth;
+                const posY = Math.random() * window.innerHeight;
+                
+                // Random duration
+                const duration = Math.random() * 2 + 1;
+                
+                fallingStar.style.left = `${posX}px`;
+                fallingStar.style.top = `${posY}px`;
+                fallingStar.style.animationDuration = `${duration}s`;
+                
+                document.body.appendChild(fallingStar);
+                
+                // Remove element after animation
+                setTimeout(() => {
+                    fallingStar.remove();
+                }, duration * 1000);
+            }, 3000);
+        }
+        
         // Planet information
         const planetInfo = {
             sun: {
                 name: "Sun",
+                icon: 'fas fa-sun',
+                color: '#FFC300',
                 description: "The Sun represents the soul, vitality, and self-expression in Vedic astrology. It governs leadership, authority, and your life purpose. A strong Sun in your chart indicates confidence, success, and good health.",
                 influence: "Governs vitality, leadership, father figures, government, and self-expression",
                 gemstone: "Ruby",
-                element: "Fire"
-            },
-            moon: {
-                name: "Moon",
-                description: "The Moon represents the mind, emotions, and subconscious patterns. It influences your emotional nature, intuition, and relationship with your mother. A well-placed Moon indicates emotional stability and strong intuition.",
-                influence: "Governs emotions, mind, mother, home, and public",
-                gemstone: "Pearl",
-                element: "Water"
+                element: "Fire",
+                facts: [
+                    "Rules the zodiac sign Leo",
+                    "Represents the core self and ego",
+                    "Associated with royalty and authority",
+                    "Transits last about 30 days"
+                ]
             },
             mercury: {
                 name: "Mercury",
+                icon: 'fas fa-comments',
+                color: '#A5A5A5',
                 description: "Mercury governs communication, intellect, and logical reasoning. It influences your ability to learn, process information, and express yourself. A strong Mercury indicates intelligence, wit, and good business acumen.",
                 influence: "Governs communication, intellect, education, commerce, and travel",
                 gemstone: "Emerald",
-                element: "Air"
+                element: "Air",
+                facts: [
+                    "Rules Gemini and Virgo",
+                    "Represents the logical mind and reasoning",
+                    "Associated with writing and speaking skills",
+                    "Transits last about 3-4 weeks"
+                ]
             },
             venus: {
                 name: "Venus",
+                icon: 'fas fa-heart',
+                color: '#E7A444',
                 description: "Venus represents love, beauty, relationships, and artistic expression. It governs marriage, partnerships, and material comforts. A well-placed Venus indicates harmony in relationships and appreciation for beauty.",
                 influence: "Governs love, marriage, arts, luxury, and social life",
                 gemstone: "Diamond",
-                element: "Water"
+                element: "Water",
+                facts: [
+                    "Rules Taurus and Libra",
+                    "Represents values and what we appreciate",
+                    "Associated with romance and pleasure",
+                    "Transits last about 23-24 days"
+                ]
+            },
+            earth: {
+                name: "Earth",
+                icon: 'fas fa-globe-asia',
+                color: '#4078A4',
+                description: "In astrology, Earth represents the material world, stability, and practicality. It governs our connection to the physical realm, resources, and groundedness. A strong Earth element indicates reliability, patience, and tangible results.",
+                influence: "Governs material possessions, stability, practicality, and physical health",
+                gemstone: "Jade",
+                element: "Earth",
+                facts: [
+                    "Associated with the Taurus-Virgo-Capricorn triad",
+                    "Represents the physical body and material world",
+                    "Governs our connection to nature",
+                    "Provides grounding energy to other elements"
+                ]
             },
             mars: {
                 name: "Mars",
+                icon: 'fas fa-fire',
+                color: '#D57027',
                 description: "Mars represents energy, courage, and action. It governs your drive, ambition, and ability to overcome challenges. A strong Mars indicates leadership qualities, physical strength, and competitive spirit.",
                 influence: "Governs energy, courage, conflicts, sports, and surgery",
                 gemstone: "Red Coral",
-                element: "Fire"
+                element: "Fire",
+                facts: [
+                    "Rules Aries and co-rules Scorpio",
+                    "Represents passion and desire",
+                    "Associated with physical energy and drive",
+                    "Transits last about 6-7 weeks"
+                ]
             },
             jupiter: {
                 name: "Jupiter",
+                icon: 'fas fa-crown',
+                color: '#D58C58',
                 description: "Jupiter is the planet of wisdom, expansion, and good fortune. It governs higher education, spirituality, and prosperity. A strong Jupiter indicates optimism, generosity, and spiritual growth.",
                 influence: "Governs wisdom, wealth, children, spirituality, and higher education",
                 gemstone: "Yellow Sapphire",
-                element: "Ether"
+                element: "Ether",
+                facts: [
+                    "Rules Sagittarius and co-rules Pisces",
+                    "Represents growth and expansion",
+                    "Associated with luck and good fortune",
+                    "Transits last about 1 year"
+                ]
             },
             saturn: {
                 name: "Saturn",
+                icon: 'fas fa-hourglass-half',
+                color: '#E7A744',
                 description: "Saturn represents discipline, responsibility, and life lessons. It governs hard work, perseverance, and long-term achievements. A well-placed Saturn indicates patience, discipline, and success through effort.",
                 influence: "Governs discipline, karma, longevity, obstacles, and career",
                 gemstone: "Blue Sapphire",
-                element: "Air"
+                element: "Air",
+                facts: [
+                    "Rules Capricorn and co-rules Aquarius",
+                    "Represents time and structure",
+                    "Associated with maturity and wisdom",
+                    "Transits last about 2.5 years"
+                ]
             }
         };
         
-        // Create solar system
-        function createSolarSystem() {
-            const solarSystem = document.querySelector('.solar-system');
+        // Modal functionality
+        const modal = document.getElementById('planetModal');
+        const closeModal = document.getElementById('closeModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalIcon = document.getElementById('modalIcon');
+        const modalBody = document.getElementById('modalBody');
+        
+        // Function to show planet info
+        function showPlanetInfo(planet) {
+            const info = planetInfo[planet];
+            if (!info) return;
             
-            // Define planet data
-            const planets = [
-                { name: 'mercury', distance: 100, size: 30, rotation: 0 },
-                { name: 'venus', distance: 140, size: 35, rotation: 60 },
-                { name: 'mars', distance: 180, size: 35, rotation: 120 },
-                { name: 'jupiter', distance: 220, size: 60, rotation: 180 },
-                { name: 'saturn', distance: 280, size: 55, rotation: 240 },
-                { name: 'moon', distance: 340, size: 30, rotation: 300 }
-            ];
+            modalTitle.textContent = info.name;
+            modalIcon.innerHTML = `<i class="${info.icon}" style="font-size: 3rem; color:${info.color}"></i>`;
             
-            // Create orbits and planets
-            planets.forEach(planet => {
-                // Create orbit
-                const orbit = document.createElement('div');
-                orbit.classList.add('orbit');
-                orbit.style.width = `${planet.distance * 2}px`;
-                orbit.style.height = `${planet.distance * 2}px`;
-                solarSystem.appendChild(orbit);
-                
-                // Create planet container
-                const planetContainer = document.createElement('div');
-                planetContainer.classList.add('planet-container', `${planet.name}-container`);
-                planetContainer.style.transform = `rotate(${planet.rotation}deg)`;
-                planetContainer.dataset.planet = planet.name;
-                
-                // Create planet
-                const planetDiv = document.createElement('div');
-                planetDiv.classList.add('planet', planet.name);
-                planetDiv.style.width = `${planet.size}px`;
-                planetDiv.style.height = `${planet.size}px`;
-                
-                // Create label
-                const label = document.createElement('div');
-                label.classList.add('orbit-label');
-                label.textContent = planet.name.charAt(0).toUpperCase() + planet.name.slice(1);
-                label.style.top = `-${planet.size}px`;
-                
-                // Create info element
-                const info = document.createElement('div');
-                info.classList.add('planet-info');
-                info.innerHTML = `
-                    <h3>${planetInfo[planet.name].name}</h3>
-                    <p>${planetInfo[planet.name].description}</p>
-                    <p><strong>Influence:</strong> ${planetInfo[planet.name].influence}</p>
-                    <p><strong>Beneficial Gemstone:</strong> ${planetInfo[planet.name].gemstone}</p>
-                    <p><strong>Element:</strong> ${planetInfo[planet.name].element}</p>
-                `;
-                
-                planetContainer.appendChild(planetDiv);
-                planetContainer.appendChild(label);
-                planetContainer.appendChild(info);
-                orbit.appendChild(planetContainer);
-                
-                // Add rotation functionality
-                let isRotating = false;
-                let startAngle = 0;
-                let startX = 0;
-                
-                planetContainer.addEventListener('mousedown', (e) => {
-                    isRotating = true;
-                    startX = e.clientX;
-                    startAngle = planet.rotation;
-                    planetContainer.style.cursor = 'grabbing';
-                    e.preventDefault();
-                });
-                
-                document.addEventListener('mousemove', (e) => {
-                    if (isRotating) {
-                        const deltaX = e.clientX - startX;
-                        const rotation = startAngle + deltaX;
-                        planetContainer.style.transform = `rotate(${rotation}deg)`;
-                    }
-                });
-                
-                document.addEventListener('mouseup', () => {
-                    isRotating = false;
-                    planetContainer.style.cursor = 'pointer';
-                });
-                
-                // Planet click event to show info
-                planetContainer.addEventListener('click', function(e) {
-                    if (!isRotating) {
-                        // Hide all other info boxes
-                        document.querySelectorAll('.planet-info').forEach(info => {
-                            info.style.display = 'none';
-                        });
-                        
-                        // Show this planet's info
-                        const info = this.querySelector('.planet-info');
-                        info.style.display = 'block';
-                        
-                        // Position the info box
-                        const rect = this.getBoundingClientRect();
-                        info.style.left = `${rect.left + 60}px`;
-                        info.style.top = `${rect.top - 100}px`;
-                    }
-                });
-            });
+            modalBody.innerHTML = `
+                <p>${info.description}</p>
+                <div class="planet-fact">
+                    <p><strong>Astrological Influence:</strong> ${info.influence}</p>
+                </div>
+                <div class="planet-fact">
+                    <p><strong>Beneficial Gemstone:</strong> ${info.gemstone}</p>
+                </div>
+                <div class="planet-fact">
+                    <p><strong>Element:</strong> ${info.element}</p>
+                </div>
+                <h3 style="margin-top: 20px; color: var(--gold);">Key Facts</h3>
+                <ul style="padding-left: 20px; margin-top: 10px;">
+                    ${info.facts.map(fact => `<li>${fact}</li>`).join('')}
+                </ul>
+            `;
             
-            // Add event listener to close info boxes when clicking outside
-            document.addEventListener('click', function(e) {
-                if (!e.target.closest('.planet-container')) {
-                    document.querySelectorAll('.planet-info').forEach(info => {
-                        info.style.display = 'none';
-                    });
-                }
-            });
-            
-            // Planet filter buttons
-            document.querySelectorAll('.planet-btn').forEach(button => {
-                button.addEventListener('click', function() {
-                    // Update active button
-                    document.querySelectorAll('.planet-btn').forEach(btn => {
-                        btn.classList.remove('active');
-                    });
-                    this.classList.add('active');
-                    
-                    const planet = this.dataset.planet;
-                    
-                    // Show/hide planets
-                    document.querySelectorAll('.planet-container').forEach(container => {
-                        if (planet === 'all' || container.dataset.planet === planet) {
-                            container.style.display = 'block';
-                        } else {
-                            container.style.display = 'none';
-                        }
-                    });
-                    
-                    // Special case for sun
-                    if (planet === 'sun') {
-                        document.querySelector('.sun').style.display = 'block';
-                        document.querySelectorAll('.planet-container').forEach(container => {
-                            container.style.display = 'none';
-                        });
-                    } else if (planet !== 'all') {
-                        document.querySelector('.sun').style.display = 'none';
-                    } else {
-                        document.querySelector('.sun').style.display = 'block';
-                    }
-                });
-            });
+            modal.style.display = 'flex';
         }
+        
+        // Close modal
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+        
+        // Close modal when clicking outside
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+        
+        // Add click events to planets
+        document.querySelectorAll('.planet, #sun').forEach(planet => {
+            planet.addEventListener('click', () => {
+                showPlanetInfo(planet.id);
+            });
+        });
         
         // Form submission
         document.getElementById('consultationForm').addEventListener('submit', function(e) {
@@ -1194,7 +1267,7 @@
         // Initialize
         document.addEventListener('DOMContentLoaded', function() {
             createStars();
-            createSolarSystem();
+            createFallingStars();
             
             // Smooth scrolling for anchor links
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
