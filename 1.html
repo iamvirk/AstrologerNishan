@@ -229,38 +229,46 @@
             background: linear-gradient(45deg, var(--secondary), var(--primary));
         }
         
-        /* Solar System */
-         .solar-system-container {
-            background: none !important;
-            border: none !important;
-            padding: 0 !important;
-            margin: 0 auto;
-            backdrop-filter: none !important;
-            box-shadow: none !important;
-            border-radius: 0 !important;
-            overflow: visible;
-            min-height: unset;
-       }
-        
-        .solar-system-title {
-            text-align: center;
-            margin-bottom: 30px;
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            color: var(--gold);
+        .solar-system-container {
+    padding-top: 100px;
+    padding-bottom: 100px;
         }
         
-        .solar-system {
-    position: relative;
-    width: 100vw;
-    height: 600px; /* or a fixed height like 500-700px */
-    max-width: 100%;
+        /* Solar System */
+         .solar-system-container {
+    margin: 80px auto 60px;
+    padding: 0;
+    background: none;
+    border: none;
+    backdrop-filter: none;
+    box-shadow: none;
+    border-radius: 0;
     overflow: visible;
+    max-width: 100%;
+    text-align: center;
+}
+
+.solar-system-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: var(--gold);
+    margin-bottom: 30px;
+}
+
+.solar-system {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    height: 500px;
     margin: 0 auto;
+    overflow: visible;
 }
         
         .sun {
     position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 120px;
     height: 120px;
     background: url('sun.png') no-repeat center center;
